@@ -1,0 +1,32 @@
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Backend
+backend/__pycache__/
+backend/.pytest_cache/
+backend/**/__pycache__/
+backend/uploads/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+*.pyc
+*.pyo
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
