@@ -3,7 +3,7 @@
 /* ----------------------------------------------------
    CareerLens Modern Dynamic Theme Engine
    Supports: Cyber Neon (Dark), Oceanic Teal (Dark), 
-             Sunset Velvet (Dark), Luxe Clean (Light)
+             Sunset Velvet (Dark), Luxe Clean (Day/Light)
    ---------------------------------------------------- */
 
 :root,
@@ -86,29 +86,29 @@
 }
 
 [data-theme="light"] {
-  --bg-primary: #f8fafc;
+  --bg-primary: #f1f5f9;
   --bg-secondary: #ffffff;
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --card-hover-bg: rgba(255, 255, 255, 0.98);
-  --card-border: rgba(203, 213, 225, 0.8);
-  --card-hover-border: rgba(99, 102, 241, 0.5);
+  --card-bg: #ffffff;
+  --card-hover-bg: #f8fafc;
+  --card-border: #cbd5e1;
+  --card-hover-border: #6366f1;
   --text-primary: #0f172a;
-  --text-secondary: #475569;
+  --text-secondary: #334155;
   --text-muted: #64748b;
   --accent-primary: #4f46e5;
   --accent-secondary: #0284c7;
   --accent-tertiary: #7c3aed;
-  --glow-color: rgba(79, 70, 229, 0.15);
-  --nav-bg: rgba(248, 250, 252, 0.88);
-  --input-bg: #ffffff;
-  --input-border: rgba(203, 213, 225, 0.9);
-  --badge-bg: rgba(79, 70, 229, 0.1);
-  --badge-border: rgba(79, 70, 229, 0.25);
-  --badge-text: #4338ca;
+  --glow-color: rgba(79, 70, 229, 0.12);
+  --nav-bg: #ffffff;
+  --input-bg: #f8fafc;
+  --input-border: #cbd5e1;
+  --badge-bg: #e0e7ff;
+  --badge-border: #a5b4fc;
+  --badge-text: #3730a3;
 
-  --mesh-1: rgba(99, 102, 241, 0.12);
-  --mesh-2: rgba(6, 182, 212, 0.10);
-  --mesh-3: rgba(168, 85, 247, 0.10);
+  --mesh-1: rgba(99, 102, 241, 0.08);
+  --mesh-2: rgba(6, 182, 212, 0.06);
+  --mesh-3: rgba(168, 85, 247, 0.06);
 }
 
 @layer base {
@@ -130,12 +130,101 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-outfit), var(--font-inter), system-ui, sans-serif;
+    color: var(--text-primary);
   }
 }
 
 /* ----------------------------------------------------
-   Modern Glassmorphic 4.0 Components & Utilities
+   Day Theme (Light Mode) High-Contrast Readability Overrides
    ---------------------------------------------------- */
+[data-theme="light"] .glass-card,
+[data-theme="light"] .glass-card-interactive,
+[data-theme="light"] aside,
+[data-theme="light"] .glass-nav {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .text-gray-100,
+[data-theme="light"] .text-gray-200,
+[data-theme="light"] .text-gray-300,
+[data-theme="light"] .text-gray-400,
+[data-theme="light"] .text-slate-300,
+[data-theme="light"] .text-slate-400 {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .text-indigo-300,
+[data-theme="light"] .text-indigo-400 {
+  color: #4338ca !important;
+}
+
+[data-theme="light"] .text-purple-300,
+[data-theme="light"] .text-purple-400 {
+  color: #6b21a8 !important;
+}
+
+[data-theme="light"] .text-cyan-300,
+[data-theme="light"] .text-cyan-400 {
+  color: #0369a1 !important;
+}
+
+[data-theme="light"] .text-emerald-300,
+[data-theme="light"] .text-emerald-400 {
+  color: #047857 !important;
+}
+
+[data-theme="light"] .text-rose-300,
+[data-theme="light"] .text-rose-400 {
+  color: #be123c !important;
+}
+
+[data-theme="light"] .text-amber-300,
+[data-theme="light"] .text-amber-400 {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .bg-slate-950,
+[data-theme="light"] .bg-slate-900,
+[data-theme="light"] .bg-slate-950\/90,
+[data-theme="light"] .bg-slate-950\/80,
+[data-theme="light"] .bg-slate-950\/60,
+[data-theme="light"] .bg-slate-950\/40,
+[data-theme="light"] .bg-slate-900\/80,
+[data-theme="light"] .bg-slate-900\/90 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .bg-white\/5,
+[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #64748b !important;
+}
+
+[data-theme="light"] option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Modern Glassmorphic Components */
 .glass-card {
   background: var(--card-bg);
   backdrop-filter: blur(24px);
@@ -233,19 +322,19 @@
 }
 
 .gradient-text-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 50%, #a855f7 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 50%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-emerald {
-  background: linear-gradient(135deg, #a7f3d0 0%, #10b981 50%, #06b6d4 100%);
+  background: linear-gradient(135deg, #047857 0%, #10b981 50%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-sunset {
-  background: linear-gradient(135deg, #fecdd3 0%, #f43f5e 50%, #f59e0b 100%);
+  background: linear-gradient(135deg, #be123c 0%, #f43f5e 50%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

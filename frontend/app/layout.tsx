@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Chatbot from '@/components/Chatbot';
 
 export const metadata: Metadata = {
   title: 'CareerLens — Resume Analyzer & Career Guidance Platform',
@@ -25,8 +26,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen antialiased">
-        {children}
+      <body className="min-h-screen antialiased bg-[var(--bg-primary)] text-[var(--text-primary)]">
+        <div className="md:pl-64 min-h-screen flex flex-col transition-all duration-300">
+          {children}
+        </div>
+        <Chatbot />
       </body>
     </html>
   );

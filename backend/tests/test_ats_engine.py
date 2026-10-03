@@ -124,3 +124,22 @@ def test_skill_gap_analysis():
     missing_names = [m["skill_name"] for m in gaps["missing_skills"]]
     assert "Machine Learning" in missing_names
     assert "PyTorch" in missing_names
+
+
+def test_phone_and_education_detection():
+    """Verify phone extraction and education section detection across various formatting styles."""
+    test_resumes = [
+        ("Mohammad Zaid\nContact No: +91 98765 43210 | zaid@example.com\nACADEMIC QUALIFICATIONS\nB.Tech CSE", "+91 98765 43210"),
+        ("Rahul Sharma\nMob: 9876543210 | rahul@test.com\nEDUCATIONAL BACKGROUND\nBachelor of Science", "9876543210"),
+        ("Ananya Patel\nPhone: +91-98765-43210 | ananya@demo.com\nACADEMICS\n10th & 12th CBSE", "+91-98765-43210"),
+    ]
+
+    for resume_text, expected_phone in test_resumes:
+        struct_data, sections = parse_resume_structure(resume_text)
+        assert struct_data["contact_info"]["phone"] is not None, f"Failed to extract phone for: {resume_text}"
+        assert "education" in struct_data["sections_found"], f"Failed to detect education section for: {resume_text}"
+
+        score_res = calculate_ats_score(resume_text, struct_data, sections)
+        assert "Missing phone number." not in score_res["problems"]
+        assert "Missing standard 'Education' section heading." not in score_res["problems"]
+
